@@ -1,0 +1,15 @@
+<form class="content" [formGroup]="otpform" (ngSubmit)="otptake(otpform.value)">
+    <div class="otpcheck form-group">
+        <label for="otp" style="margin-top: 80px;">Enter OTP</label><br>
+        <input class="input rounded" type="password" formControlName="otp" id="otp"><br>
+        <!-- <div *ngIf="otp.invalid && (otp.touched || otp.dirty)">
+            <span *ngIf="otp.errors?.required" style="color: red;">*OTP is Required</span> -->
+            <!-- <button>Submit</button> -->
+        <!-- </div><br> -->
+        <button class="btn btn-success" [disabled]="otpform.invalid"  
+            style="margin-top: 40px;">Submit</button>
+
+    </div>
+</form>
+<!-- <router-outlet></router-outlet> -->
+<!-- [routerLink]="['/log-in']"           (click)="otptake(otpform.value)"    routerLink="/log-in"-->

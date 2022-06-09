@@ -1,0 +1,35 @@
+<div class="Container-fluid" style="margin-top: 80px;">
+
+<!-- <form #usersForm="ngForm"  (ngSubmit)="getUserFormData(usersForm.value)">
+<input type="email" ngModel email="email" placeholder="Enter your Email"> <br><br>
+<button>Add User</button>
+</form> -->
+
+
+    <!-- ####################################### PRE ################################# -->
+    <form class="content" [formGroup]="registerForm" (ngSubmit)="getUserFormData(registerForm.value)">
+        <div class="form-group" style="text-align: center;">
+            <label>Please Enter Your User Name</label><br>
+            <input type="email" style="text-align: center;" autocomplete="off" class="rounded form__input" formControlName="email" id="email"
+                aria-describedby="emailHelp" placeholder="Enter email ID">
+
+            <!-- display error start -->
+            <div *ngIf="email.invalid && (email.touched || email.dirty)">
+                <span *ngIf="email.errors?.required" style="color: red;">*Email is Required</span>
+                <span *ngIf="email.errors?.email" style="color: red;">*Enter Valid Email Id</span>
+                
+            </div><br><br>
+             
+            <!-- display erroer end   {{output.message}}-->
+            <button  class="btn btn-success"    [disabled]="registerForm.invalid"
+                style="font-weight: bold;">Send-OTP</button>
+
+            <!-- routerLinkActive="active" (click)="getUserFormData(registerForm.value)"  routerLink="./otp" routerLink="/otp"  <button *ngIf="true"></button>   *ngIf="myVar" [routerLink]="['/otp']"  [routerLink]="myVar ? ['/otp'] : []"   [routerLink]="getUserFormData(registerForm.value)"-->
+        </div>
+    </form>
+        <!-- ####################################### PRE ################################# -->
+
+</div>
+<!-- <app-root></app-root> -->
+<router-outlet></router-outlet>
+<!-- routerLink="/otp" -->
